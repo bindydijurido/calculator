@@ -6,6 +6,7 @@ import java.net.URL;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
 import io.appium.java_client.AppiumDriver;
@@ -36,6 +37,16 @@ public class root {
 		cap.setCapability("noReset", true);
 
 		driver = new AndroidDriver<WebElement>(new URL("http://0.0.0.0:4444/wd/hub"), cap);
+	}
+
+	@AfterMethod
+
+	public void restart() throws InterruptedException {
+
+		driver.closeApp();
+		driver.launchApp();
+
+		Thread.sleep(1500);
 	}
 
 	@AfterClass
