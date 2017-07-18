@@ -14,42 +14,34 @@ public class methods extends root {
 	protected static String RESULT = "info.woodsmall.calculator:id/txtVal";
 
 	public static By getNumber(int element) {
-
 		return (By) By.id(String.format(NUMBER, Integer.toString(element)));
 	}
 
 	public static By getPeriod() {
-
 		return (By) By.id(PERIOD);
 	}
 
 	public static By getEqual() {
-
 		return (By) By.id(EQUAL);
 	}
 
 	public static By getPlus() {
-
 		return (By) By.id(PLUS);
 	}
 
 	public static By getMinus() {
-
 		return (By) By.id(MINUS);
 	}
 
 	public static By getTimes() {
-
 		return (By) By.id(TIMES);
 	}
 
 	public static By getDivide() {
-
 		return (By) By.id(DIVIDE);
 	}
 
 	public static By getResult() {
-
 		return (By) By.id(RESULT);
 	}
 }
