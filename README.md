@@ -16,7 +16,7 @@ In this repository I am using several libraries and tools:
 
 - Simple Stylish Calculator v.1.8.0 - https://oceanofapk.com/calculator-simple-stylish-v1-8-0-proapk-free-download/
 
-You can download everything manually or simply import gradle project. *Please remember to check if TestNG and Android SDK Tools are installed in Eclipse before running the tests*.
+You can download everything manually or simply import gradle project. *Please remember to check if TestNG and Android SDK Tools are installed in Eclipse and Appium 1.4.16.1 and Android SDK Manager + Android VDM are installed on your OS before running the tests*.
 
 Enjoy and feel free to comment everything you want,
 
