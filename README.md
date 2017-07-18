@@ -18,6 +18,11 @@ In this repository I am using several libraries and tools:
 
 You can download everything manually or simply import gradle project. *Please remember to check if TestNG and Android SDK Tools are installed in Eclipse and Appium 1.4.16.1 and Android SDK Manager + Android VDM are installed on your OS before running the tests*.
 
+# appium setup
+
+![alt text](https://raw.githubusercontent.com/bindydijurido/calculator/master/misc/appium.jpg)
+
+
 Enjoy and feel free to comment everything you want,
 
 Best,
