@@ -36,16 +36,13 @@ public class tests extends methods {
 	@Test
 	public void AdvancedAdditionFunctionality() {
 
-		driver.findElement(getNumber(9)).click();
-		driver.findElement(getNumber(4)).click();
+		driver.findElement(getNumber(9)).click(); driver.findElement(getNumber(4)).click();
 		driver.findElement(getPlus()).click();
-		driver.findElement(getNumber(9)).click();
-		driver.findElement(getNumber(4)).click();
+		driver.findElement(getNumber(9)).click(); driver.findElement(getNumber(4)).click();
 		driver.findElement(getPlus()).click();
 		driver.findElement(getNumber(1)).click();
 		driver.findElement(getPlus()).click();
-		driver.findElement(getNumber(5)).click();
-		driver.findElement(getNumber(1)).click();
+		driver.findElement(getNumber(5)).click(); driver.findElement(getNumber(1)).click();
 		driver.findElement(getEqual()).click();
 
 		result = driver.findElement(getResult()).getText().toString();
