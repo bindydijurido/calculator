@@ -22,7 +22,7 @@ You can download everything manually or simply import gradle project. *Please re
 
 ![alt text](https://raw.githubusercontent.com/bindydijurido/calculator/master/misc/appium.jpg)
 
-
+#
 ![alt text](https://raw.githubusercontent.com/bindydijurido/calculator/master/misc/appium1.jpg)
 
 
