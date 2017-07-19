@@ -1,5 +1,7 @@
 package calculator;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -9,7 +11,10 @@ public class tests extends methods {
 
 	public String result;
 	public String expected;
+	public String sumS;
 	public int math;
+	public int n;
+	public int n1;
 
 	@Test
 	public void AppLaunch() {
@@ -51,5 +56,40 @@ public class tests extends methods {
 		expected = Integer.toString(math);
 
 		Assert.assertEquals(result, expected);
+	}
+	
+	@Test
+	public void RandomlyAdditionFunctionality() {
+
+		int sum = 0;
+
+		do {
+
+			n = ThreadLocalRandom.current().nextInt(0, 9);
+			n1 = ThreadLocalRandom.current().nextInt(0, 9);
+
+			driver.findElement(getPlus()).click();
+
+			driver.findElement(getNumber(n)).click();
+
+			driver.findElement(getPlus()).click();
+
+			driver.findElement(getNumber(n1)).click();
+
+			sum = sum + n + n1;
+
+			System.out.print(sum + " + ");
+		}
+
+		while (sum <= 100);
+		
+		System.out.print("= " + sum);
+
+		driver.findElement(getEqual()).click();
+
+		result = driver.findElement(getResult()).getText().toString();
+		sumS = Integer.toString(sum);
+
+		Assert.assertEquals(sumS, result);
 	}
 }
