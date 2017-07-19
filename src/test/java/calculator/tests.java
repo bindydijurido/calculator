@@ -65,8 +65,8 @@ public class tests extends methods {
 
 		do {
 
-			n = ThreadLocalRandom.current().nextInt(0, 9);
-			n1 = ThreadLocalRandom.current().nextInt(0, 9);
+			n = ThreadLocalRandom.current().nextInt(0, 10);
+			n1 = ThreadLocalRandom.current().nextInt(0, 10);
 
 			driver.findElement(getPlus()).click();
 			driver.findElement(getNumber(n)).click();
@@ -75,12 +75,12 @@ public class tests extends methods {
 
 			sum = sum + n + n1;
 
-			System.out.print(sum + " + ");
+			System.out.println(n + " + " + n1 + " / sum: " + sum + ",");
 		}
 
-		while (sum <= 100);
+		while (sum <= 500);
 		
-		System.out.print("= " + sum);
+		System.out.println("sum: " + sum);
 
 		driver.findElement(getEqual()).click();
 		
