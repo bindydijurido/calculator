@@ -14,5 +14,4 @@ compile group: 'org.seleniumhq.selenium', name: 'selenium-server', version: '3.4
 compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.4.0'
 testCompile group: 'org.hamcrest', name: 'java-hamcrest', version: '2.0.0.0'
 compile group: 'io.appium', name: 'java-client', version: '4.1.2'
-  
 }
