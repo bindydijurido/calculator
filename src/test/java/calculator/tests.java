@@ -69,11 +69,8 @@ public class tests extends methods {
 			n1 = ThreadLocalRandom.current().nextInt(0, 9);
 
 			driver.findElement(getPlus()).click();
-
 			driver.findElement(getNumber(n)).click();
-
 			driver.findElement(getPlus()).click();
-
 			driver.findElement(getNumber(n1)).click();
 
 			sum = sum + n + n1;
@@ -86,7 +83,7 @@ public class tests extends methods {
 		System.out.print("= " + sum);
 
 		driver.findElement(getEqual()).click();
-
+		
 		result = driver.findElement(getResult()).getText().toString();
 		sumS = Integer.toString(sum);
 
