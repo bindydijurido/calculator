@@ -107,8 +107,8 @@ public class tests extends methods {
 
 		do {
 
-			Key1 = ThreadLocalRandom.current().nextInt(2, 10);
-			Key2 = ThreadLocalRandom.current().nextInt(2, 10);
+			Key1 = ThreadLocalRandom.current().nextInt(0, 10);
+			Key2 = ThreadLocalRandom.current().nextInt(0, 10);
 			KeyDivide = ThreadLocalRandom.current().nextInt(1, 10);
 			Operation1 = ThreadLocalRandom.current().nextInt(1, 4);
 			Operation2 = ThreadLocalRandom.current().nextInt(1, 4);
