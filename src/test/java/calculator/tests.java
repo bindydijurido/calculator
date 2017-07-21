@@ -75,7 +75,7 @@ public class tests extends methods {
 
 			Key1 = ThreadLocalRandom.current().nextInt(0, 10);
 			Key2 = ThreadLocalRandom.current().nextInt(0, 10);
-
+			
 			driver.findElement(getPlus()).click();
 			driver.findElement(getNumber(Key1)).click();
 			driver.findElement(getPlus()).click();
