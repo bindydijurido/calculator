@@ -172,7 +172,7 @@ public class tests extends methods {
 			System.out.println(Key1 + math2 + Key2 + math1 + " / sum: " + sum + ",");
 		}
 
-		while (i <= 150);
+		while (i == 150);
 
 		driver.findElement(getEqual()).click();
 
