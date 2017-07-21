@@ -75,7 +75,7 @@ public class tests extends methods {
 
 			Key1 = ThreadLocalRandom.current().nextInt(0, 10);
 			Key2 = ThreadLocalRandom.current().nextInt(0, 10);
-			
+
 			driver.findElement(getPlus()).click();
 			driver.findElement(getNumber(Key1)).click();
 			driver.findElement(getPlus()).click();
@@ -87,17 +87,17 @@ public class tests extends methods {
 		}
 
 		while (sum <= 500);
-		
+
 		System.out.println("sum: " + sum);
 
 		driver.findElement(getEqual()).click();
-		
+
 		result = driver.findElement(getResult()).getText().toString();
 		sumS = Integer.toString(sum);
 
 		Assert.assertEquals(sumS, result);
 	}
-	
+
 	@Test
 	public void RandomlyCalculateThings() {
 
