@@ -1,6 +1,7 @@
 package calculator;
 
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.Random;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -12,9 +13,16 @@ public class tests extends methods {
 	public String result;
 	public String expected;
 	public String sumS;
+	public String math1;
+	public String math2;
 	public int math;
-	public int n;
-	public int n1;
+	public int Key1;
+	public int Key2;
+	public int KeyDivide;
+	public int Operation1;
+	public int Operation2;
+	Random random = new Random();
+	boolean TF;
 
 	@Test
 	public void AppLaunch() {
@@ -65,17 +73,17 @@ public class tests extends methods {
 
 		do {
 
-			n = ThreadLocalRandom.current().nextInt(0, 10);
-			n1 = ThreadLocalRandom.current().nextInt(0, 10);
+			Key1 = ThreadLocalRandom.current().nextInt(0, 10);
+			Key2 = ThreadLocalRandom.current().nextInt(0, 10);
 
 			driver.findElement(getPlus()).click();
-			driver.findElement(getNumber(n)).click();
+			driver.findElement(getNumber(Key1)).click();
 			driver.findElement(getPlus()).click();
-			driver.findElement(getNumber(n1)).click();
+			driver.findElement(getNumber(Key2)).click();
 
-			sum = sum + n + n1;
+			sum = sum + Key1 + Key2;
 
-			System.out.println(n + " + " + n1 + " / sum: " + sum + ",");
+			System.out.println(Key1 + " + " + Key2 + " / sum: " + sum + ",");
 		}
 
 		while (sum <= 500);
@@ -86,6 +94,95 @@ public class tests extends methods {
 		
 		result = driver.findElement(getResult()).getText().toString();
 		sumS = Integer.toString(sum);
+
+		Assert.assertEquals(sumS, result);
+	}
+	
+	@Test
+	public void RandomlyCalculateThings() {
+
+		int i = 0;
+		double sum = 0;
+		TF = random.nextBoolean();
+
+		do {
+
+			Key1 = ThreadLocalRandom.current().nextInt(0, 10);
+			Key2 = ThreadLocalRandom.current().nextInt(0, 10);
+			KeyDivide = ThreadLocalRandom.current().nextInt(1, 10);
+			Operation1 = ThreadLocalRandom.current().nextInt(1, 4);
+			Operation2 = ThreadLocalRandom.current().nextInt(1, 4);
+
+			switch (Operation1) {
+
+			case 1:
+				driver.findElement(getPlus()).click();
+				sum = sum + Key1;
+				math1 = " + ";
+				break;
+
+			case 2:
+				driver.findElement(getMinus()).click();
+				sum = sum - Key1;
+				math1 = " - ";
+				break;
+
+			case 3:
+				driver.findElement(getTimes()).click();
+				sum = sum * Key1;
+				math1 = " * ";
+				break;
+			}
+
+			driver.findElement(getNumber(Key1)).click();
+
+			if (sum > 200 || sum < -100 && TF) {
+
+				driver.findElement(getDivide()).click();
+				sum = sum / KeyDivide;
+				math2 = " / ";
+			} else {
+
+				switch (Operation2) {
+
+				case 1:
+					driver.findElement(getPlus()).click();
+					sum = sum + Key2;
+					math2 = " + ";
+					break;
+
+				case 2:
+					driver.findElement(getMinus()).click();
+					sum = sum - Key2;
+					math2 = " - ";
+					break;
+
+				case 3:
+					driver.findElement(getTimes()).click();
+					sum = sum * Key2;
+					math2 = " * ";
+					break;
+				}
+			}
+
+			driver.findElement(getNumber(Key2)).click();
+
+			i++;
+
+			System.out.println(Key1 + math2 + Key2 + math1 + " / sum: " + sum + ",");
+		}
+
+		while (i <= 150);
+
+		driver.findElement(getEqual()).click();
+
+		result = driver.findElement(getResult()).getText().toString();
+		result = result.split("\\.")[0];
+
+		sumS = String.valueOf(sum);
+		sumS = result.split("\\.")[0];
+
+		System.out.println("sum: " + sumS);
 
 		Assert.assertEquals(sumS, result);
 	}
