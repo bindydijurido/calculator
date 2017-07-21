@@ -107,8 +107,8 @@ public class tests extends methods {
 
 		do {
 
-			Key1 = ThreadLocalRandom.current().nextInt(0, 10);
-			Key2 = ThreadLocalRandom.current().nextInt(0, 10);
+			Key1 = ThreadLocalRandom.current().nextInt(2, 10);
+			Key2 = ThreadLocalRandom.current().nextInt(2, 10);
 			KeyDivide = ThreadLocalRandom.current().nextInt(1, 10);
 			Operation1 = ThreadLocalRandom.current().nextInt(1, 4);
 			Operation2 = ThreadLocalRandom.current().nextInt(1, 4);
@@ -172,17 +172,19 @@ public class tests extends methods {
 			System.out.println(Key1 + math2 + Key2 + math1 + " / sum: " + sum + ",");
 		}
 
-		while (i <= 150);
+		while (i <= 25);
 
 		driver.findElement(getEqual()).click();
 
 		result = driver.findElement(getResult()).getText().toString();
 		result = result.split("\\.")[0];
+		
+		System.out.print("result from calculator: " + result);
 
 		sumS = String.valueOf(sum);
 		sumS = result.split("\\.")[0];
-
-		System.out.println("sum: " + sumS);
+		
+		System.out.println(", result from compilator: " + sumS);
 
 		Assert.assertEquals(sumS, result);
 	}
