@@ -29,7 +29,6 @@ public class root {
 
 		cap.setCapability("BROWSER_NAME", "Android");
 		cap.setCapability("VERSION", "4.4.2");
-		// I'm using the older supported Android version for testing
 		cap.setCapability("platformName", "Android");
 		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Emulator");
 		cap.setCapability("AVD", "emulator");
