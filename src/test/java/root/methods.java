@@ -47,7 +47,7 @@ public class methods extends root {
 		return (By) By.id(RESULT);
 	}
 
-	public static int getRandomizeOperation() {
+	public static int getRandomCaseNumber() {
 		return ThreadLocalRandom.current().nextInt(1, 4);
 	}
 }

@@ -133,7 +133,7 @@ public class tests extends methods {
 			RandomNumber2 = ThreadLocalRandom.current().nextInt(0, 10);
 			DivideValue = ThreadLocalRandom.current().nextInt(1, 10);
 
-			switch (getRandomizeOperation()) {
+			switch (getRandomCaseNumber()) {
 
 			case 1:
 				driver.findElement(getPlus()).click();
@@ -163,7 +163,7 @@ public class tests extends methods {
 				MathSymbol2 = " / ";
 			} else {
 
-				switch (getRandomizeOperation()) {
+				switch (getRandomCaseNumber()) {
 
 				case 1:
 					driver.findElement(getPlus()).click();
