@@ -15,11 +15,11 @@ public class tests extends methods {
 	public String result;
 	public String expected;
 	public String sumS;
-	public String math1;
-	public String math2;
-	public int math;
-	public int Key1;
-	public int Key2;
+	public String MathSymbol1;
+	public String MathSymbol2;
+	public int DoMathematic;
+	public int RandomKey1;
+	public int RandomKey2;
 	public int KeyDivide;
 	public int Operation1;
 	public int Operation2;
@@ -28,7 +28,11 @@ public class tests extends methods {
 	@Test
 	public void AppLaunch() {
 
+		System.out.println("Starting App Launch test");
+
 		Assert.assertNotNull(driver.getContext());
+
+		System.out.println("Test passed");
 	}
 
 	@Test
@@ -43,8 +47,8 @@ public class tests extends methods {
 
 		result = driver.findElement(getResult()).getText().toString();
 
-		math = 1 + 6;
-		expected = Integer.toString(math);
+		DoMathematic = 1 + 6;
+		expected = Integer.toString(DoMathematic);
 
 		Assert.assertEquals(result, expected);
 
@@ -70,8 +74,8 @@ public class tests extends methods {
 
 		result = driver.findElement(getResult()).getText().toString();
 
-		math = 94 + 94 + 1 + 51;
-		expected = Integer.toString(math);
+		DoMathematic = 94 + 94 + 1 + 51;
+		expected = Integer.toString(DoMathematic);
 
 		Assert.assertEquals(result, expected);
 
@@ -85,17 +89,17 @@ public class tests extends methods {
 
 		do {
 
-			Key1 = ThreadLocalRandom.current().nextInt(0, 10);
-			Key2 = ThreadLocalRandom.current().nextInt(0, 10);
+			RandomKey1 = ThreadLocalRandom.current().nextInt(0, 10);
+			RandomKey2 = ThreadLocalRandom.current().nextInt(0, 10);
 
 			driver.findElement(getPlus()).click();
-			driver.findElement(getNumber(Key1)).click();
+			driver.findElement(getNumber(RandomKey1)).click();
 			driver.findElement(getPlus()).click();
-			driver.findElement(getNumber(Key2)).click();
+			driver.findElement(getNumber(RandomKey2)).click();
 
-			sum = sum + Key1 + Key2;
+			sum = sum + RandomKey1 + RandomKey2;
 
-			System.out.println(Key1 + " + " + Key2 + " / sum: " + sum + ",");
+			System.out.println(RandomKey1 + " + " + RandomKey2 + " / sum: " + sum + ",");
 		}
 
 		while (sum <= 500);
@@ -123,8 +127,8 @@ public class tests extends methods {
 
 		do {
 
-			Key1 = ThreadLocalRandom.current().nextInt(0, 10);
-			Key2 = ThreadLocalRandom.current().nextInt(0, 10);
+			RandomKey1 = ThreadLocalRandom.current().nextInt(0, 10);
+			RandomKey2 = ThreadLocalRandom.current().nextInt(0, 10);
 			KeyDivide = ThreadLocalRandom.current().nextInt(1, 10);
 			Operation1 = ThreadLocalRandom.current().nextInt(1, 4);
 			Operation2 = ThreadLocalRandom.current().nextInt(1, 4);
@@ -133,59 +137,59 @@ public class tests extends methods {
 
 			case 1:
 				driver.findElement(getPlus()).click();
-				sum = sum + Key1;
-				math1 = " + ";
+				sum = sum + RandomKey1;
+				MathSymbol1 = " + ";
 				break;
 
 			case 2:
 				driver.findElement(getMinus()).click();
-				sum = sum - Key1;
-				math1 = " - ";
+				sum = sum - RandomKey1;
+				MathSymbol1 = " - ";
 				break;
 
 			case 3:
 				driver.findElement(getTimes()).click();
-				sum = sum * Key1;
-				math1 = " * ";
+				sum = sum * RandomKey1;
+				MathSymbol1 = " * ";
 				break;
 			}
 
-			driver.findElement(getNumber(Key1)).click();
+			driver.findElement(getNumber(RandomKey1)).click();
 
 			if (sum > 200 || sum < -100 && TF) {
 
 				driver.findElement(getDivide()).click();
 				sum = sum / KeyDivide;
-				math2 = " / ";
+				MathSymbol2 = " / ";
 			} else {
 
 				switch (Operation2) {
 
 				case 1:
 					driver.findElement(getPlus()).click();
-					sum = sum + Key2;
-					math2 = " + ";
+					sum = sum + RandomKey2;
+					MathSymbol2 = " + ";
 					break;
 
 				case 2:
 					driver.findElement(getMinus()).click();
-					sum = sum - Key2;
-					math2 = " - ";
+					sum = sum - RandomKey2;
+					MathSymbol2 = " - ";
 					break;
 
 				case 3:
 					driver.findElement(getTimes()).click();
-					sum = sum * Key2;
-					math2 = " * ";
+					sum = sum * RandomKey2;
+					MathSymbol2 = " * ";
 					break;
 				}
 			}
 
-			driver.findElement(getNumber(Key2)).click();
+			driver.findElement(getNumber(RandomKey2)).click();
 
 			i++;
 
-			System.out.println(Key1 + math2 + Key2 + math1 + " / sum: " + sum + ",");
+			System.out.println(RandomKey1 + MathSymbol2 + RandomKey2 + MathSymbol1 + " / sum: " + sum + ",");
 		}
 
 		while (i <= 250);
