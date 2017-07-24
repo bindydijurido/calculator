@@ -187,8 +187,6 @@ public class tests extends methods {
 
 			driver.findElement(getNumber(RandomNumber2)).click();
 
-			i++;
-
 			System.out.println(RandomNumber1 + MathSymbol2 + RandomNumber2 + MathSymbol1 + " / sum: " + sum + ",");
 		}
 
