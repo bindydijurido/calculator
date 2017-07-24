@@ -33,6 +33,8 @@ public class tests extends methods {
 	@Test
 	public void SimpleAdditionFunctionality() {
 
+		System.out.println("Starting Simple Addition Functionality test");
+
 		driver.findElement(getNumber(1)).click();
 		driver.findElement(getPlus()).click();
 		driver.findElement(getNumber(6)).click();
@@ -44,18 +46,25 @@ public class tests extends methods {
 		expected = Integer.toString(math);
 
 		Assert.assertEquals(result, expected);
+
+		System.out.println("Test passed");
 	}
 
 	@Test
 	public void AdvancedAdditionFunctionality() {
 
-		driver.findElement(getNumber(9)).click(); driver.findElement(getNumber(4)).click();
+		System.out.println("Starting Advanced Addition Functionality test");
+
+		driver.findElement(getNumber(9)).click();
+		driver.findElement(getNumber(4)).click();
 		driver.findElement(getPlus()).click();
-		driver.findElement(getNumber(9)).click(); driver.findElement(getNumber(4)).click();
+		driver.findElement(getNumber(9)).click();
+		driver.findElement(getNumber(4)).click();
 		driver.findElement(getPlus()).click();
 		driver.findElement(getNumber(1)).click();
 		driver.findElement(getPlus()).click();
-		driver.findElement(getNumber(5)).click(); driver.findElement(getNumber(1)).click();
+		driver.findElement(getNumber(5)).click();
+		driver.findElement(getNumber(1)).click();
 		driver.findElement(getEqual()).click();
 
 		result = driver.findElement(getResult()).getText().toString();
@@ -64,8 +73,10 @@ public class tests extends methods {
 		expected = Integer.toString(math);
 
 		Assert.assertEquals(result, expected);
+
+		System.out.println("Test passed");
 	}
-	
+
 	@Test
 	public void RandomlyAdditionFunctionality() {
 
@@ -96,10 +107,14 @@ public class tests extends methods {
 		sumS = Integer.toString(sum);
 
 		Assert.assertEquals(sumS, result);
+
+		System.out.println("Test passed");
 	}
 
 	@Test
 	public void RandomlyCalculateThings() {
+
+		System.out.println("Starting Randomly Calculate Things test");
 
 		int i = 0;
 		double sum = 0;
@@ -172,20 +187,22 @@ public class tests extends methods {
 			System.out.println(Key1 + math2 + Key2 + math1 + " / sum: " + sum + ",");
 		}
 
-		while (i <= 25);
+		while (i <= 250);
 
 		driver.findElement(getEqual()).click();
 
 		result = driver.findElement(getResult()).getText().toString();
 		result = result.split("\\.")[0];
-		
+
 		System.out.print("result from calculator: " + result);
 
 		sumS = String.valueOf(sum);
 		sumS = result.split("\\.")[0];
-		
+
 		System.out.println(", result from compilator: " + sumS);
 
 		Assert.assertEquals(sumS, result);
+
+		System.out.println("Test passed");
 	}
 }
