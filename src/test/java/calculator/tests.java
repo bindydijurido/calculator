@@ -18,8 +18,8 @@ public class tests extends methods {
 	public String MathSymbol1;
 	public String MathSymbol2;
 	public int DoMathematic;
-	public int RandomKey1;
-	public int RandomKey2;
+	public int RandomNumber1;
+	public int RandomNumber2;
 	public int DivideValue;
 	public int Operation1;
 	public int Operation2;
@@ -89,17 +89,17 @@ public class tests extends methods {
 
 		do {
 
-			RandomKey1 = ThreadLocalRandom.current().nextInt(0, 10);
-			RandomKey2 = ThreadLocalRandom.current().nextInt(0, 10);
+			RandomNumber1 = ThreadLocalRandom.current().nextInt(0, 10);
+			RandomNumber2 = ThreadLocalRandom.current().nextInt(0, 10);
 
 			driver.findElement(getPlus()).click();
-			driver.findElement(getNumber(RandomKey1)).click();
+			driver.findElement(getNumber(RandomNumber1)).click();
 			driver.findElement(getPlus()).click();
-			driver.findElement(getNumber(RandomKey2)).click();
+			driver.findElement(getNumber(RandomNumber2)).click();
 
-			sum = sum + RandomKey1 + RandomKey2;
+			sum = sum + RandomNumber1 + RandomNumber2;
 
-			System.out.println(RandomKey1 + " + " + RandomKey2 + " / sum: " + sum + ",");
+			System.out.println(RandomNumber1 + " + " + RandomNumber2 + " / sum: " + sum + ",");
 		}
 
 		while (sum <= 500);
@@ -127,8 +127,8 @@ public class tests extends methods {
 
 		do {
 
-			RandomKey1 = ThreadLocalRandom.current().nextInt(0, 10);
-			RandomKey2 = ThreadLocalRandom.current().nextInt(0, 10);
+			RandomNumber1 = ThreadLocalRandom.current().nextInt(0, 10);
+			RandomNumber2 = ThreadLocalRandom.current().nextInt(0, 10);
 			DivideValue = ThreadLocalRandom.current().nextInt(1, 10);
 			Operation1 = ThreadLocalRandom.current().nextInt(1, 4);
 			Operation2 = ThreadLocalRandom.current().nextInt(1, 4);
@@ -137,24 +137,24 @@ public class tests extends methods {
 
 			case 1:
 				driver.findElement(getPlus()).click();
-				sum = sum + RandomKey1;
+				sum = sum + RandomNumber1;
 				MathSymbol1 = " + ";
 				break;
 
 			case 2:
 				driver.findElement(getMinus()).click();
-				sum = sum - RandomKey1;
+				sum = sum - RandomNumber1;
 				MathSymbol1 = " - ";
 				break;
 
 			case 3:
 				driver.findElement(getTimes()).click();
-				sum = sum * RandomKey1;
+				sum = sum * RandomNumber1;
 				MathSymbol1 = " * ";
 				break;
 			}
 
-			driver.findElement(getNumber(RandomKey1)).click();
+			driver.findElement(getNumber(RandomNumber1)).click();
 
 			if (sum > 200 || sum < -100 && TorF) {
 
@@ -167,29 +167,29 @@ public class tests extends methods {
 
 				case 1:
 					driver.findElement(getPlus()).click();
-					sum = sum + RandomKey2;
+					sum = sum + RandomNumber2;
 					MathSymbol2 = " + ";
 					break;
 
 				case 2:
 					driver.findElement(getMinus()).click();
-					sum = sum - RandomKey2;
+					sum = sum - RandomNumber2;
 					MathSymbol2 = " - ";
 					break;
 
 				case 3:
 					driver.findElement(getTimes()).click();
-					sum = sum * RandomKey2;
+					sum = sum * RandomNumber2;
 					MathSymbol2 = " * ";
 					break;
 				}
 			}
 
-			driver.findElement(getNumber(RandomKey2)).click();
+			driver.findElement(getNumber(RandomNumber2)).click();
 
 			i++;
 
-			System.out.println(RandomKey1 + MathSymbol2 + RandomKey2 + MathSymbol1 + " / sum: " + sum + ",");
+			System.out.println(RandomNumber1 + MathSymbol2 + RandomNumber2 + MathSymbol1 + " / sum: " + sum + ",");
 		}
 
 		while (i <= 250);
