@@ -10,6 +10,8 @@ import root.methods;
 
 public class tests extends methods {
 
+	Random random = new Random();
+
 	public String result;
 	public String expected;
 	public String sumS;
@@ -21,8 +23,7 @@ public class tests extends methods {
 	public int KeyDivide;
 	public int Operation1;
 	public int Operation2;
-	Random random = new Random();
-	boolean TF;
+	public boolean TF;
 
 	@Test
 	public void AppLaunch() {
