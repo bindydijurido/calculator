@@ -20,7 +20,7 @@ public class tests extends methods {
 	public int DoMathematic;
 	public int RandomKey1;
 	public int RandomKey2;
-	public int KeyDivide;
+	public int DivideValue;
 	public int Operation1;
 	public int Operation2;
 	public boolean TorF;
@@ -129,7 +129,7 @@ public class tests extends methods {
 
 			RandomKey1 = ThreadLocalRandom.current().nextInt(0, 10);
 			RandomKey2 = ThreadLocalRandom.current().nextInt(0, 10);
-			KeyDivide = ThreadLocalRandom.current().nextInt(1, 10);
+			DivideValue = ThreadLocalRandom.current().nextInt(1, 10);
 			Operation1 = ThreadLocalRandom.current().nextInt(1, 4);
 			Operation2 = ThreadLocalRandom.current().nextInt(1, 4);
 
@@ -159,7 +159,7 @@ public class tests extends methods {
 			if (sum > 200 || sum < -100 && TorF) {
 
 				driver.findElement(getDivide()).click();
-				sum = sum / KeyDivide;
+				sum = sum / DivideValue;
 				MathSymbol2 = " / ";
 			} else {
 
