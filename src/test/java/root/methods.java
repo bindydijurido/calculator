@@ -1,5 +1,7 @@
 package root;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 import org.openqa.selenium.By;
 
 public class methods extends root {
@@ -43,5 +45,9 @@ public class methods extends root {
 
 	public static By getResult() {
 		return (By) By.id(RESULT);
+	}
+
+	public static int getOperation() {
+		return ThreadLocalRandom.current().nextInt(1, 4);
 	}
 }

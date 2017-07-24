@@ -21,8 +21,8 @@ public class tests extends methods {
 	public int RandomNumber1;
 	public int RandomNumber2;
 	public int DivideValue;
-	public int Operation1;
-	public int Operation2;
+	public int RandomMath1;
+	public int RandomMath2;
 	public boolean TorF;
 
 	@Test
@@ -85,6 +85,8 @@ public class tests extends methods {
 	@Test
 	public void RandomlyAdditionFunctionality() {
 
+		System.out.println("Staring Randomly Addition Functionality test");
+
 		int sum = 0;
 
 		do {
@@ -125,15 +127,13 @@ public class tests extends methods {
 		double sum = 0;
 		TorF = random.nextBoolean();
 
-		do {
+		for (i = 0; i < 250; i++) {
 
 			RandomNumber1 = ThreadLocalRandom.current().nextInt(0, 10);
 			RandomNumber2 = ThreadLocalRandom.current().nextInt(0, 10);
 			DivideValue = ThreadLocalRandom.current().nextInt(1, 10);
-			Operation1 = ThreadLocalRandom.current().nextInt(1, 4);
-			Operation2 = ThreadLocalRandom.current().nextInt(1, 4);
 
-			switch (Operation1) {
+			switch (getOperation()) {
 
 			case 1:
 				driver.findElement(getPlus()).click();
@@ -163,7 +163,7 @@ public class tests extends methods {
 				MathSymbol2 = " / ";
 			} else {
 
-				switch (Operation2) {
+				switch (getOperation()) {
 
 				case 1:
 					driver.findElement(getPlus()).click();
@@ -191,8 +191,6 @@ public class tests extends methods {
 
 			System.out.println(RandomNumber1 + MathSymbol2 + RandomNumber2 + MathSymbol1 + " / sum: " + sum + ",");
 		}
-
-		while (i <= 250);
 
 		driver.findElement(getEqual()).click();
 
