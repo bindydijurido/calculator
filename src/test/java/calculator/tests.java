@@ -117,11 +117,10 @@ public class tests extends methods {
 
 		System.out.println("Starting Randomly Calculate Things test");
 
-		int i = 0;
 		double sum = 0;
 		TorF = random.nextBoolean();
 
-		for (i = 0; i < 250; i++) {
+		for (int i = 0; i < 250; i++) {
 
 			RandomNumber1 = getRandomNumber();
 			RandomNumber2 = getRandomNumber();
