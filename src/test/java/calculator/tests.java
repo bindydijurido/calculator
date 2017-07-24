@@ -1,6 +1,5 @@
 package calculator;
 
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.Random;
 
 import org.testng.Assert;
@@ -20,7 +19,6 @@ public class tests extends methods {
 	public int DoMathematic;
 	public int RandomNumber1;
 	public int RandomNumber2;
-	public int DivideValue;
 	public boolean TorF;
 
 	@Test
@@ -89,8 +87,8 @@ public class tests extends methods {
 
 		do {
 
-			RandomNumber1 = ThreadLocalRandom.current().nextInt(0, 10);
-			RandomNumber2 = ThreadLocalRandom.current().nextInt(0, 10);
+			RandomNumber1 = getRandomNumber();
+			RandomNumber2 = getRandomNumber();
 
 			driver.findElement(getPlus()).click();
 			driver.findElement(getNumber(RandomNumber1)).click();
@@ -100,9 +98,7 @@ public class tests extends methods {
 			sum = sum + RandomNumber1 + RandomNumber2;
 
 			System.out.println(RandomNumber1 + " + " + RandomNumber2 + " / sum: " + sum + ",");
-		}
-
-		while (sum <= 500);
+		} while (sum <= 500);
 
 		System.out.println("sum: " + sum);
 
@@ -127,9 +123,8 @@ public class tests extends methods {
 
 		for (i = 0; i < 250; i++) {
 
-			RandomNumber1 = ThreadLocalRandom.current().nextInt(0, 10);
-			RandomNumber2 = ThreadLocalRandom.current().nextInt(0, 10);
-			DivideValue = ThreadLocalRandom.current().nextInt(1, 10);
+			RandomNumber1 = getRandomNumber();
+			RandomNumber2 = getRandomNumber();
 
 			switch (getRandomCaseNumber()) {
 
@@ -157,7 +152,8 @@ public class tests extends methods {
 			if (sum > 200 || sum < -100 && TorF) {
 
 				driver.findElement(getDivide()).click();
-				sum = sum / DivideValue;
+				sum = sum / getRandomNumber();
+				;
 				MathSymbol2 = " / ";
 			} else {
 

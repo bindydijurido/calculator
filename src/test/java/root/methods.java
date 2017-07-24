@@ -50,4 +50,8 @@ public class methods extends root {
 	public static int getRandomCaseNumber() {
 		return ThreadLocalRandom.current().nextInt(1, 4);
 	}
+
+	public static int getRandomNumber() {
+		return ThreadLocalRandom.current().nextInt(1, 10);
+	}
 }
