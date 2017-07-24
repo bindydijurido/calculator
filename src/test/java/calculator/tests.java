@@ -23,7 +23,7 @@ public class tests extends methods {
 	public int KeyDivide;
 	public int Operation1;
 	public int Operation2;
-	public boolean TF;
+	public boolean TorF;
 
 	@Test
 	public void AppLaunch() {
@@ -123,7 +123,7 @@ public class tests extends methods {
 
 		int i = 0;
 		double sum = 0;
-		TF = random.nextBoolean();
+		TorF = random.nextBoolean();
 
 		do {
 
@@ -156,7 +156,7 @@ public class tests extends methods {
 
 			driver.findElement(getNumber(RandomKey1)).click();
 
-			if (sum > 200 || sum < -100 && TF) {
+			if (sum > 200 || sum < -100 && TorF) {
 
 				driver.findElement(getDivide()).click();
 				sum = sum / KeyDivide;
