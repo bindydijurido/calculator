@@ -21,8 +21,6 @@ public class tests extends methods {
 	public int RandomNumber1;
 	public int RandomNumber2;
 	public int DivideValue;
-	public int RandomMath1;
-	public int RandomMath2;
 	public boolean TorF;
 
 	@Test
