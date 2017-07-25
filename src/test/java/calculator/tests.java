@@ -41,7 +41,7 @@ public class tests extends methods {
 		driver.findElement(getNumber(6)).click();
 		driver.findElement(getEqual()).click();
 
-		CalculatorResult = driver.findElement(getResult()).getText().toString();
+		CalculatorResult = getResultToString();
 
 		DoMathematic = 1 + 6;
 		CompilatorResult = Integer.toString(DoMathematic);
