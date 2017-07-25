@@ -19,6 +19,7 @@ public class tests extends methods {
 	public int DoMathematic;
 	public int RandomNumber1;
 	public int RandomNumber2;
+	public int RandomDivideNumber;
 	public boolean TorF;
 
 	@Test
@@ -113,17 +114,18 @@ public class tests extends methods {
 	}
 
 	@Test
-	public void RandomlyCalculateThings() {
+	public void RandomlyCalculateThings() throws InterruptedException {
 
 		System.out.println("Starting Randomly Calculate Things test");
 
 		double sum = 0;
-		TorF = random.nextBoolean();
+		TorF = false;
 
-		for (int i = 0; i < 250; i++) {
+		for (int i = 0; i < 25; i++) {
 
 			RandomNumber1 = getRandomNumber();
 			RandomNumber2 = getRandomNumber();
+			RandomDivideNumber = getRandomDivideNumber();
 
 			switch (getRandomCaseNumber()) {
 
@@ -148,12 +150,15 @@ public class tests extends methods {
 
 			driver.findElement(getNumber(RandomNumber1)).click();
 
-			if (sum > 200 || sum < -100 && TorF) {
+			driver.findElement(getEqual()).click();
+
+			if (sum > 26 || sum < -26) {
 
 				driver.findElement(getDivide()).click();
-				sum = sum / getRandomNumber();
-				;
+				sum = sum / RandomDivideNumber;
 				MathSymbol2 = " / ";
+
+				driver.findElement(getNumber(RandomDivideNumber)).click();
 			} else {
 
 				switch (getRandomCaseNumber()) {
@@ -176,24 +181,34 @@ public class tests extends methods {
 					MathSymbol2 = " * ";
 					break;
 				}
+
+				driver.findElement(getNumber(RandomNumber2)).click();
 			}
 
-			driver.findElement(getNumber(RandomNumber2)).click();
+			sumS = String.valueOf(sum);
 
-			System.out.println(RandomNumber1 + MathSymbol2 + RandomNumber2 + MathSymbol1 + " / sum: " + sum + ",");
+			driver.findElement(getEqual()).click();
+
+			result = getResultToString();
+
+			if (TorF == false) {
+
+				System.out.println("#" + i + " / 0" + MathSymbol1 + RandomNumber1 + MathSymbol2 + RandomNumber2
+						+ " / compilator: " + sumS + " / calculator: " + result);
+
+				TorF = true;
+
+			} else {
+
+				System.out.println("#" + i + " /" + MathSymbol1 + RandomNumber1 + MathSymbol2 + RandomNumber2
+						+ " / compilator: " + sumS + " / calculator: " + result);
+			}
 		}
 
-		driver.findElement(getEqual()).click();
-
-		result = driver.findElement(getResult()).getText().toString();
 		result = result.split("\\.")[0];
-
-		System.out.print("result from calculator: " + result);
 
 		sumS = String.valueOf(sum);
 		sumS = result.split("\\.")[0];
-
-		System.out.println(", result from compilator: " + sumS);
 
 		Assert.assertEquals(sumS, result);
 

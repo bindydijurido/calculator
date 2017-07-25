@@ -46,12 +46,20 @@ public class methods extends root {
 	public static By getResult() {
 		return (By) By.id(RESULT);
 	}
+	
+	public static String getResultToString() {
+		return driver.findElement(getResult()).getText().toString();
+	}
 
 	public static int getRandomCaseNumber() {
 		return ThreadLocalRandom.current().nextInt(1, 4);
 	}
 
 	public static int getRandomNumber() {
-		return ThreadLocalRandom.current().nextInt(1, 10);
+		return ThreadLocalRandom.current().nextInt(0, 10);
+	}
+	
+	public static int getRandomDivideNumber() {
+		return ThreadLocalRandom.current().nextInt(1,10);
 	}
 }
