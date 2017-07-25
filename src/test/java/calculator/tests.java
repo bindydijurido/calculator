@@ -208,7 +208,7 @@ public class tests extends methods {
 		result = result.split("\\.")[0];
 
 		sumS = String.valueOf(sum);
-		sumS = result.split("\\.")[0];
+		sumS = sumS.split("\\.")[0];
 
 		Assert.assertEquals(sumS, result);
 
