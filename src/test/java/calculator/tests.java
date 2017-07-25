@@ -114,7 +114,7 @@ public class tests extends methods {
 	}
 
 	@Test
-	public void RandomlyCalculateThings() throws InterruptedException {
+	public void RandomlyCalculateThings() {
 
 		System.out.println("Starting Randomly Calculate Things test");
 
