@@ -12,7 +12,6 @@ public class tests extends methods {
 	Random random = new Random();
 
 	public String CalculatorResult;
-	public String expected;
 	public String CompilatorResult;
 	public String MathSymbol1;
 	public String MathSymbol2;
@@ -45,9 +44,9 @@ public class tests extends methods {
 		CalculatorResult = driver.findElement(getResult()).getText().toString();
 
 		DoMathematic = 1 + 6;
-		expected = Integer.toString(DoMathematic);
+		CompilatorResult = Integer.toString(DoMathematic);
 
-		Assert.assertEquals(CalculatorResult, expected);
+		Assert.assertEquals(CalculatorResult, CompilatorResult);
 
 		System.out.println("Test passed");
 	}
@@ -72,9 +71,9 @@ public class tests extends methods {
 		CalculatorResult = driver.findElement(getResult()).getText().toString();
 
 		DoMathematic = 94 + 94 + 1 + 51;
-		expected = Integer.toString(DoMathematic);
+		CompilatorResult = Integer.toString(DoMathematic);
 
-		Assert.assertEquals(CalculatorResult, expected);
+		Assert.assertEquals(CalculatorResult, CompilatorResult);
 
 		System.out.println("Test passed");
 	}
