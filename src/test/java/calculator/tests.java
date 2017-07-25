@@ -11,9 +11,9 @@ public class tests extends methods {
 
 	Random random = new Random();
 
-	public String result;
+	public String CalculatorResult;
 	public String expected;
-	public String sumS;
+	public String CompilatorResult;
 	public String MathSymbol1;
 	public String MathSymbol2;
 	public int DoMathematic;
@@ -42,12 +42,12 @@ public class tests extends methods {
 		driver.findElement(getNumber(6)).click();
 		driver.findElement(getEqual()).click();
 
-		result = driver.findElement(getResult()).getText().toString();
+		CalculatorResult = driver.findElement(getResult()).getText().toString();
 
 		DoMathematic = 1 + 6;
 		expected = Integer.toString(DoMathematic);
 
-		Assert.assertEquals(result, expected);
+		Assert.assertEquals(CalculatorResult, expected);
 
 		System.out.println("Test passed");
 	}
@@ -69,12 +69,12 @@ public class tests extends methods {
 		driver.findElement(getNumber(1)).click();
 		driver.findElement(getEqual()).click();
 
-		result = driver.findElement(getResult()).getText().toString();
+		CalculatorResult = driver.findElement(getResult()).getText().toString();
 
 		DoMathematic = 94 + 94 + 1 + 51;
 		expected = Integer.toString(DoMathematic);
 
-		Assert.assertEquals(result, expected);
+		Assert.assertEquals(CalculatorResult, expected);
 
 		System.out.println("Test passed");
 	}
@@ -88,8 +88,8 @@ public class tests extends methods {
 
 		do {
 
-			RandomNumber1 = getRandomNumber();
-			RandomNumber2 = getRandomNumber();
+			RandomNumber1 = getRandomNumber(0, 10);
+			RandomNumber2 = getRandomNumber(0, 10);
 
 			driver.findElement(getPlus()).click();
 			driver.findElement(getNumber(RandomNumber1)).click();
@@ -99,16 +99,16 @@ public class tests extends methods {
 			sum = sum + RandomNumber1 + RandomNumber2;
 
 			System.out.println(RandomNumber1 + " + " + RandomNumber2 + " / sum: " + sum + ",");
-		} while (sum <= 500);
+		} while (sum <= 250);
 
 		System.out.println("sum: " + sum);
 
 		driver.findElement(getEqual()).click();
 
-		result = driver.findElement(getResult()).getText().toString();
-		sumS = Integer.toString(sum);
+		CalculatorResult = getResultToString();
+		CompilatorResult = String.valueOf(sum);
 
-		Assert.assertEquals(sumS, result);
+		Assert.assertEquals(CompilatorResult, CalculatorResult);
 
 		System.out.println("Test passed");
 	}
@@ -121,13 +121,13 @@ public class tests extends methods {
 		double sum = 0;
 		TorF = false;
 
-		for (int i = 0; i < 25; i++) {
+		for (int i = 0; i < 35; i++) {
 
-			RandomNumber1 = getRandomNumber();
-			RandomNumber2 = getRandomNumber();
-			RandomDivideNumber = getRandomDivideNumber();
+			RandomNumber1 = getRandomNumber(0, 10);
+			RandomNumber2 = getRandomNumber(0, 10);
+			RandomDivideNumber = getRandomNumber(1, 10);
 
-			switch (getRandomCaseNumber()) {
+			switch (getRandomNumber(1, 4)) {
 
 			case 1:
 				driver.findElement(getPlus()).click();
@@ -161,7 +161,7 @@ public class tests extends methods {
 				driver.findElement(getNumber(RandomDivideNumber)).click();
 			} else {
 
-				switch (getRandomCaseNumber()) {
+				switch (getRandomNumber(1, 4)) {
 
 				case 1:
 					driver.findElement(getPlus()).click();
@@ -185,32 +185,31 @@ public class tests extends methods {
 				driver.findElement(getNumber(RandomNumber2)).click();
 			}
 
-			sumS = String.valueOf(sum);
+			CompilatorResult = String.valueOf(sum);
 
 			driver.findElement(getEqual()).click();
 
-			result = getResultToString();
+			CalculatorResult = getResultToString();
 
 			if (TorF == false) {
 
 				System.out.println("#" + i + " / 0" + MathSymbol1 + RandomNumber1 + MathSymbol2 + RandomNumber2
-						+ " / compilator: " + sumS + " / calculator: " + result);
+						+ " / compilator: " + CompilatorResult + " / calculator: " + CalculatorResult);
 
 				TorF = true;
 
 			} else {
 
 				System.out.println("#" + i + " /" + MathSymbol1 + RandomNumber1 + MathSymbol2 + RandomNumber2
-						+ " / compilator: " + sumS + " / calculator: " + result);
+						+ " / compilator: " + CompilatorResult + " / calculator: " + CalculatorResult);
 			}
 		}
 
-		result = result.split("\\.")[0];
+		CalculatorResult = CalculatorResult.split("\\.")[0];
 
-		sumS = String.valueOf(sum);
-		sumS = sumS.split("\\.")[0];
+		CompilatorResult = CompilatorResult.split("\\.")[0];
 
-		Assert.assertEquals(sumS, result);
+		Assert.assertEquals(CompilatorResult, CalculatorResult);
 
 		System.out.println("Test passed");
 	}
