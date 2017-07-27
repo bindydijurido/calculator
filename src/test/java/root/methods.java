@@ -1,10 +1,23 @@
 package root;
 
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.openqa.selenium.By;
 
 public class methods extends root {
+
+	Random random = new Random();
+
+	public String CalculatorResult;
+	public String CompilatorResult;
+	public String MathSymbol1;
+	public String MathSymbol2;
+	public int DoMathematic;
+	public int RandomNumber1;
+	public int RandomNumber2;
+	public int RandomDivideNumber;
+	public boolean TorF;
 
 	protected static String NUMBER = "info.woodsmall.calculator:id/btn%s";
 	protected static String PERIOD = "info.woodsmall.calculator:id/btnPeriod";
@@ -46,7 +59,7 @@ public class methods extends root {
 	public static By getResult() {
 		return (By) By.id(RESULT);
 	}
-	
+
 	public static String getResultToString() {
 		return driver.findElement(getResult()).getText().toString();
 	}
