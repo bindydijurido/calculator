@@ -1,6 +1,12 @@
 # calculator
 mobile automated testing with java+selenium+appium+testNG
 
+# link to the aim
+
+https://github.com/bindydijurido/calculator/tree/master/src/test/java/calculator
+
+#
+
 Hello guys! 
 
 In this repository I am using several libraries and tools: 
