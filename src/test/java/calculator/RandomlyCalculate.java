@@ -15,7 +15,7 @@ public class RandomlyCalculate extends methods {
 		double sum = 0;
 		TorF = false;
 
-		for (int i = 0; i < 35; i++) {
+		for (int i = 0; i < 350; i++) {
 
 			RandomNumber1 = getRandomNumber(0, 10);
 			RandomNumber2 = getRandomNumber(0, 10);
