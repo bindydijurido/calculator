@@ -1,7 +1,7 @@
 # calculator
 mobile automated testing with java+selenium+appium+testNG
 
-# link to the aim
+# link to the test and test description:
 
 https://github.com/bindydijurido/calculator/tree/master/src/test/java/calculator
 
