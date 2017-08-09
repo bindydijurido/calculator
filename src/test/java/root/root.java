@@ -1,21 +1,32 @@
 package root;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
+
+import org.apache.commons.io.FileUtils;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.OutputType;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
+import atu.testrecorder.exceptions.ATUTestRecorderException;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 
+import org.openqa.selenium.TakesScreenshot;
+
 public class root {
 
 	protected static AppiumDriver<WebElement> driver;
+	String baseUrl;
 
 	public root() {
 		super();
@@ -39,6 +50,15 @@ public class root {
 	}
 
 	@AfterMethod
+
+	public void takeScreenShotOnFailure(ITestResult testResult)
+			throws IOException, InterruptedException, ATUTestRecorderException {
+		if (testResult.getStatus() == ITestResult.FAILURE) {
+			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(scrFile, new File("misc/screenshots/", "Screenshot" + "_" + testResult.getStartMillis()
+					+ "_" + testResult.getName() + "_" + Arrays.toString(testResult.getParameters()) + ".png"));
+		}
+	}
 
 	public void restart() throws InterruptedException {
 
