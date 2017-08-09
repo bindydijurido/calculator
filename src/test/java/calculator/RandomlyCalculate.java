@@ -97,13 +97,19 @@ public class RandomlyCalculate extends methods {
 				System.out.println("#" + i + " /" + MathSymbol1 + RandomNumber1 + MathSymbol2 + RandomNumber2
 						+ " / compilator: " + CompilatorResult + " / calculator: " + CalculatorResult);
 			}
+
+			CalculatorResult = CalculatorResult.split("\\.")[0];
+
+			CompilatorResult = CompilatorResult.split("\\.")[0];
+
+			Assert.assertEquals(CompilatorResult, CalculatorResult);
 		}
 
-		CalculatorResult = CalculatorResult.split("\\.")[0];
-
-		CompilatorResult = CompilatorResult.split("\\.")[0];
-
-		Assert.assertEquals(CompilatorResult, CalculatorResult);
+		// CalculatorResult = CalculatorResult.split("\\.")[0];
+		//
+		// CompilatorResult = CompilatorResult.split("\\.")[0];
+		//
+		// Assert.assertEquals(CompilatorResult, CalculatorResult);
 
 		System.out.println("Test passed");
 	}
