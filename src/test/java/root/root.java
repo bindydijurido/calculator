@@ -55,12 +55,10 @@ public class root {
 			throws IOException, InterruptedException, ATUTestRecorderException {
 		if (testResult.getStatus() == ITestResult.FAILURE) {
 			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(scrFile, new File("test-output/screenshots/", "Screenshot" + "_" + testResult.getStartMillis()
-					+ "_" + testResult.getName() + "_" + Arrays.toString(testResult.getParameters()) + ".png"));
+			FileUtils.copyFile(scrFile,
+					new File("test-output/screenshots/", "Screenshot" + "_" + testResult.getStartMillis() + "_"
+							+ testResult.getName() + "_" + Arrays.toString(testResult.getParameters()) + ".png"));
 		}
-	}
-
-	public void restart() throws InterruptedException {
 
 		driver.closeApp();
 		driver.launchApp();

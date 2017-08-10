@@ -105,12 +105,6 @@ public class RandomlyCalculate extends methods {
 			Assert.assertEquals(CompilatorResult, CalculatorResult);
 		}
 
-		// CalculatorResult = CalculatorResult.split("\\.")[0];
-		//
-		// CompilatorResult = CompilatorResult.split("\\.")[0];
-		//
-		// Assert.assertEquals(CompilatorResult, CalculatorResult);
-
 		System.out.println("Test passed");
 	}
 }
