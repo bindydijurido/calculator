@@ -16,7 +16,7 @@ public class RandomCalculation extends Methods {
 		double sum = 0;
 		log("I am starting randomly 'Calculate Things'");
 		// mathAction value describes total number of operations on calculator apk. just
-		// change the value in the for loop just as you like : )
+		// change the value in the loop just as you like : )
 		for (int mathAction = 0; mathAction < 350; mathAction++) {
 			int firstNr = getRandomNr(0, 10);
 			int secondNr = getRandomNr(0, 10);
@@ -70,6 +70,7 @@ public class RandomCalculation extends Methods {
 					secondSymbol = " * ";
 					break;
 				}
+
 				driver.findElement(getNumber(secondNr)).click();
 			}
 
@@ -79,13 +80,15 @@ public class RandomCalculation extends Methods {
 
 			boolean sOUT = false;
 			if (sOUT == false) {
-				log("#" + mathAction + " / 0" + firstSymbol + firstNr + secondSymbol + secondNr
-						+ " / compilator: " + compilatorResult + " / calculator: " + calculatorResult);
+				log("#" + mathAction + " / 0" + firstSymbol + firstNr + secondSymbol + secondNr +
+						" / compilator: " + compilatorResult + " / calculator: " + calculatorResult);
+
 				sOUT = true;
 			} else {
-				log("#" + mathAction + " /" + firstSymbol + firstNr + secondSymbol + secondNr
-						+ " / compilator: " + compilatorResult + " / calculator: " + calculatorResult);
+				log("#" + mathAction + " /" + firstSymbol + firstNr + secondSymbol + secondNr +
+						" / compilator: " + compilatorResult + " / calculator: " + calculatorResult);
 			}
+
 			Assert.assertEquals(compilatorResult.split("\\.")[0], calculatorResult.split("\\.")[0]);
 		}
 		log("Test passed");
