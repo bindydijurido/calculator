@@ -15,8 +15,6 @@ public class RandomCalculation extends Methods {
 
 		double sum = 0;
 		log("I am starting randomly 'Calculate Things'");
-		// mathAction value describes total number of operations on calculator apk. just
-		// change the value in the loop just as you like : )
 		for (int mathAction = 0; mathAction < 350; mathAction++) {
 			int firstNr = getRandomNr(0, 10);
 			int secondNr = getRandomNr(0, 10);
