@@ -3,89 +3,65 @@ package calculator;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import root.Methods;
+import methods.Methods;
 
 public class RandomCalculation extends Methods {
 
-	public String firstSymbol;
-	public String secondSymbol;
+	public static int SUM = 0;
 
 	@Test
 	public void randomCalculate() {
 
-		double sum = 0;
 		log("I am starting randomly 'Calculate Things'");
-		for (int mathAction = 0; mathAction < 350; mathAction++) {
+		for (int mathAction = 0; mathAction < 10; mathAction++) {
 			int firstNr = getRandomNr(0, 10);
 			int secondNr = getRandomNr(0, 10);
 			int divideNr = getRandomNr(1, 10);
 
 			switch (getRandomNr(1, 4)) {
 			case 1:
-				driver.findElement(getPlus()).click();
-				sum = sum + firstNr;
-				firstSymbol = " + ";
+				actions.Math.doSomeMath(firstNr, "plus", getPlus());
 				break;
 
 			case 2:
-				driver.findElement(getMinus()).click();
-				sum = sum - firstNr;
-				firstSymbol = " - ";
+				actions.Math.doSomeMath(firstNr, "minus", getMinus());
 				break;
 
 			case 3:
-				driver.findElement(getTimes()).click();
-				sum = sum * firstNr;
-				firstSymbol = " * ";
+				actions.Math.doSomeMath(firstNr, "times", getTimes());
 				break;
 			}
 
-			driver.findElement(getNumber(firstNr)).click();
-			driver.findElement(getEqual()).click();
+			let(getNumber(firstNr)).click();
+			let(getEqual()).click();
 
-			if (sum > 26 || sum < -26) {
-				driver.findElement(getDivide()).click();
-				sum = sum / divideNr;
-				secondSymbol = " / ";
-				driver.findElement(getNumber(divideNr)).click();
+			if (SUM > 26 || SUM < -26) {
+				actions.Math.doSomeMath(divideNr, "divide", getDivide());
+				let(getNumber(divideNr)).click();
 			} else {
 				switch (getRandomNr(1, 4)) {
 				case 1:
-					driver.findElement(getPlus()).click();
-					sum = sum + secondNr;
-					secondSymbol = " + ";
+					actions.Math.doSomeMath(secondNr, "plus", getPlus());
 					break;
 
 				case 2:
-					driver.findElement(getMinus()).click();
-					sum = sum - secondNr;
-					secondSymbol = " - ";
+					actions.Math.doSomeMath(secondNr, "minus", getMinus());
 					break;
 
 				case 3:
-					driver.findElement(getTimes()).click();
-					sum = sum * secondNr;
-					secondSymbol = " * ";
+					actions.Math.doSomeMath(secondNr, "times", getTimes());
 					break;
 				}
 
-				driver.findElement(getNumber(secondNr)).click();
+				let(getNumber(secondNr)).click();
 			}
 
-			String compilatorResult = String.valueOf(sum);
-			driver.findElement(getEqual()).click();
-			String calculatorResult = getResultToString();
+			String compilatorResult = getParseSum(SUM);
+			let(getEqual()).click();
+			String calculatorResult = getParseResult();
 
-			boolean sOUT = false;
-			if (sOUT == false) {
-				log("#" + mathAction + " / 0" + firstSymbol + firstNr + secondSymbol + secondNr +
-						" / compilator: " + compilatorResult + " / calculator: " + calculatorResult);
-
-				sOUT = true;
-			} else {
-				log("#" + mathAction + " /" + firstSymbol + firstNr + secondSymbol + secondNr +
-						" / compilator: " + compilatorResult + " / calculator: " + calculatorResult);
-			}
+			log("#" + mathAction + " // compilator: " + compilatorResult
+					+ " / calculator: " + calculatorResult);
 
 			Assert.assertEquals(compilatorResult.split("\\.")[0], calculatorResult.split("\\.")[0]);
 		}

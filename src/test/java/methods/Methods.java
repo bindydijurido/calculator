@@ -1,10 +1,18 @@
-package root;
+package methods;
 
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import utility.Root;
 
 public class Methods extends Root {
+	
+	public static final WebElement let(By locator) {
+		WebElement Element = Root.driver.findElement(locator);
+		return Element;
+	}
 
 	public static By getNumber(int element) {
 		return (By) By.id(String.format("info.woodsmall.calculator:id/btn%s", Integer.toString(element)));
@@ -38,8 +46,12 @@ public class Methods extends Root {
 		return (By) By.id("info.woodsmall.calculator:id/txtVal");
 	}
 
-	public static String getResultToString() {
-		return driver.findElement(getResult()).getText().toString();
+	public static String getParseResult() {
+		return (let(getResult()).getText().toString());
+	}
+	
+	public static String getParseSum(double sum) {
+		return (String.valueOf(sum));
 	}
 
 	public static int getRandomNr(int element, int element1) {
